@@ -9,7 +9,7 @@ using TelerikBlazorGrid_Dapper.DataAccess.Models;
 
 namespace TelerikBlazorGrid_Dapper.DataAccess.Services
 {
-    public class ProductDataService
+    public class ProductDataService : IProductDataService
     {
         private readonly IDataAccess _dataAccess;
 
@@ -18,7 +18,7 @@ namespace TelerikBlazorGrid_Dapper.DataAccess.Services
             _dataAccess = dataAccess;
         }
 
-        public async Task<DataSourceResponse<Product>> GetProducts<T>(DataSourceRequest request)
+        public async Task<DataSourceResponse<Product>> GetProducts(DataSourceRequest request)
         {
             var templates = request.GenerateTemplates("dbo.Products");
 

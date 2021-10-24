@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TelerikBlazorGrid_Dapper.Blazor.Data;
+using TelerikBlazorGrid_Dapper.DataAccess;
+using TelerikBlazorGrid_Dapper.DataAccess.Services;
 
 namespace TelerikBlazorGrid_Dapper.Blazor
 {
@@ -31,6 +33,13 @@ namespace TelerikBlazorGrid_Dapper.Blazor
             services.AddSingleton<WeatherForecastService>();
 
             services.AddTelerikBlazor();
+
+            services.AddScoped<IProductDataService, ProductDataService>();
+
+            services.AddScoped<IDataAccess>(serviceProvider =>
+            {
+                return new SqlDataAccess(Configuration.GetConnectionString("Default"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
