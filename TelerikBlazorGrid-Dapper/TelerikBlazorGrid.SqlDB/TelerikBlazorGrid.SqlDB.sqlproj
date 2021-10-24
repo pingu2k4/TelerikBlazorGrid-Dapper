@@ -70,4 +70,7 @@
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\PostDeploy.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish\TelerikBlazorGrid.SqlDB.publish.xml" />
+  </ItemGroup>
 </Project>
